@@ -3,3 +3,4 @@ telegram==0.0.1
 telebot==0.0.5
 python-telegram-bot==20.7
 gunicorn==21.2.0
+requests==2.31.0
