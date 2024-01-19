@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 # Replace 'YOUR_TELEGRAM_BOT_TOKEN' with your actual Telegram bot token
 TELEGRAM_BOT_TOKEN = '6446584536:AAGCLNnVtJ-0yMgQv2xNjL6aYAe1gt234Nw'
-TELEGRAM_CHAT_ID = '6446584536'  # Replace with your actual Telegram chat ID
+TELEGRAM_CHAT_ID = '5043961881'  # Replace with your actual Telegram chat ID
 
 # Set up the Telegram bot
 bot = Bot(token=TELEGRAM_BOT_TOKEN)
