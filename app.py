@@ -16,37 +16,17 @@ form_template = """
 <html>
 <head>
     <title>Telegram Form</title>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body>
-    <form id="telegramForm" action="#">
+    <form id="telegramForm" action="/submit" method="post">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required><br><br>
 
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required><br><br>
 
-        <input type="button" value="Submit" onclick="submitForm()">
+        <input type="submit" value="Submit">
     </form>
-
-    <script>
-        function submitForm() {
-            var name = document.getElementById('name').value;
-            var email = document.getElementById('email').value;
-
-            $.ajax({
-                url: '/submit',
-                type: 'POST',
-                data: { name: name, email: email },
-                success: function (data) {
-                    alert('Form submitted successfully!');
-                },
-                error: function (error) {
-                    alert('Error submitting the form.');
-                }
-            });
-        }
-    </script>
 </body>
 </html>
 """
@@ -56,17 +36,20 @@ form_template = """
 def show_form():
     return form_template
 
-# Route for handling asynchronous form submission
+# Route for handling form submission
 @app.route('/submit', methods=['POST'])
 def submit_form():
-    name = request.form['name']
-    email = request.form['email']
+    try:
+        name = request.form['name']
+        email = request.form['email']
 
-    # Send the form data to the Telegram bot
-    message = f"New form submission:\nName: {name}\nEmail: {email}"
-    bot.send_message(chat_id=TELEGRAM_CHAT_ID, text=message)
+        # Send the form data to the Telegram bot
+        message = f"New form submission:\nName: {name}\nEmail: {email}"
+        bot.send_message(chat_id=TELEGRAM_CHAT_ID, text=message)
 
-    return jsonify({'status': 'success'})
+        return jsonify({'status': 'success'})
+    except Exception as e:
+        return jsonify({'status': 'error', 'message': str(e)})
 
 # Main function
 if __name__ == "__main__":
