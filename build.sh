@@ -5,4 +5,4 @@ set -e
 pip install -r requirements.txt
 
 # Run any additional build commands
-python app.py build
+python app.py 
