@@ -1,14 +1,11 @@
 from flask import Flask, render_template, request, jsonify
-from telegram import Bot
+import requests
 
 app = Flask(__name__)
 
 # Replace 'YOUR_TELEGRAM_BOT_TOKEN' with your actual Telegram bot token
 TELEGRAM_BOT_TOKEN = '6752205626:AAFmvEgnj6j_jl1WmqSowQeSAQqYW_yo4hQ'
 TELEGRAM_CHAT_ID = '5043961881'  # Replace with your actual Telegram chat ID
-
-# Set up the Telegram bot
-bot = Bot(token=TELEGRAM_BOT_TOKEN)
 
 # Define the form template
 form_template = """
@@ -45,11 +42,20 @@ def submit_form():
 
         # Send the form data to the Telegram bot
         message = f"New form submission:\nName: {name}\nEmail: {email}"
-        bot.send_message(chat_id=TELEGRAM_CHAT_ID, text=message)
+        send_message_to_telegram(message)
 
         return jsonify({'status': 'success'})
     except Exception as e:
         return jsonify({'status': 'error', 'message': str(e)})
+
+def send_message_to_telegram(message):
+    telegram_api_url = f'https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage'
+    params = {
+        'chat_id': TELEGRAM_CHAT_ID,
+        'text': message
+    }
+    response = requests.post(telegram_api_url, params=params)
+    response.raise_for_status()
 
 # Main function
 if __name__ == "__main__":
