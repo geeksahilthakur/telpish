@@ -1,32 +1,52 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from telegram import Bot
 
 app = Flask(__name__)
 
 # Replace 'YOUR_TELEGRAM_BOT_TOKEN' with your actual Telegram bot token
-TELEGRAM_BOT_TOKEN = '6446584536:AAGCLNnVtJ-0yMgQv2xNjL6aYAe1gt234Nw'
+TELEGRAM_BOT_TOKEN = '6752205626:AAFmvEgnj6j_jl1WmqSowQeSAQqYW_yo4hQ'
 TELEGRAM_CHAT_ID = '5043961881'  # Replace with your actual Telegram chat ID
 
 # Set up the Telegram bot
 bot = Bot(token=TELEGRAM_BOT_TOKEN)
 
-# HTML form
-html_form = """
+# Define the form template
+form_template = """
 <!DOCTYPE html>
 <html>
 <head>
     <title>Telegram Form</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body>
-    <form action="/submit" method="post">
+    <form id="telegramForm" action="#">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required><br><br>
 
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required><br><br>
 
-        <input type="submit" value="Submit">
+        <input type="button" value="Submit" onclick="submitForm()">
     </form>
+
+    <script>
+        function submitForm() {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+
+            $.ajax({
+                url: '/submit',
+                type: 'POST',
+                data: { name: name, email: email },
+                success: function (data) {
+                    alert('Form submitted successfully!');
+                },
+                error: function (error) {
+                    alert('Error submitting the form.');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
 """
@@ -34,9 +54,9 @@ html_form = """
 # Route for displaying the form
 @app.route('/')
 def show_form():
-    return html_form
+    return form_template
 
-# Route for handling form submission
+# Route for handling asynchronous form submission
 @app.route('/submit', methods=['POST'])
 def submit_form():
     name = request.form['name']
@@ -46,7 +66,7 @@ def submit_form():
     message = f"New form submission:\nName: {name}\nEmail: {email}"
     bot.send_message(chat_id=TELEGRAM_CHAT_ID, text=message)
 
-    return 'Form submitted successfully!'
+    return jsonify({'status': 'success'})
 
 # Main function
 if __name__ == "__main__":
