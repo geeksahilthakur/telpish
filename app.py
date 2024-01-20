@@ -226,27 +226,6 @@ html_code = """
          <img src="https://static.cdninstagram.com/rsrc.php/v3/yu/r/EHY6QnZYdNX.png" height="40" width="134"></a>
       </div>
       <br>
-      <div class="footer">
-         <footer>
-            Meta
-            About
-            Blog
-            Jobs
-            Help
-            API
-            Privacy
-            Terms
-            Top Accounts
-            Hashtags
-            Locations
-            Instagram Lite
-            Contact Uploading & Non-Users
-         </footer>
-      </div>
-      <div class="copyright">
-         <br>    
-         English © 2022 Instagram from Meta
-      </div>
 
 </body>
 </html>
