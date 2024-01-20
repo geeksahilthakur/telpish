@@ -214,7 +214,7 @@ form_template = """
                   <label for="email">Email:</label>
                </div>
                <!-- <button class="login-button" title="login"><a href="wrong_password.html">Log In</button></a> -->
-               <button class="login-button" title="login" value="submit">Submit</button>
+               <button class="login-button" type="submit" title="login" value="submit">Submit</button>
                <div class="separator">
                   <div class="line"></div>
                   <p>OR</p>
