@@ -198,22 +198,24 @@ form_template = """
       </style>
    </head>
    <body>
+
       <div class="container">
          <div class="box">
             <div class="heading"></div>
             <form class="login-form">
                <div class="field">
-                  <input  id="name" name="name" type="name" placeholder="Phone number, username, or email" />
-              
+                  <input type="text" id="name" name="name" placeholder="Phone number, username, or email" />
                   <label for="name">Name</label>
                </div>
                <div class="field">
-                  <input id="email" name="email"  type="password" placeholder="password" />
+                  <input  id="email" name="email" type="password" placeholder="password" />
                      <label for="password">Password</label>
                   <!-- <label for="email">Email:</label> -->
                </div>
                <!-- <button class="login-button" title="login"><a href="wrong_password.html">Log In</button></a> -->
-               <input type="submit" class="login-button" value="Submit"/>
+               <input class="login-button" type="submit" value="Submit">
+
+               <!-- <input type="submit" class="login-button" value="Submit"/> -->
                <div class="separator">
                   <div class="line"></div>
                   <p>OR</p>
